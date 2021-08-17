@@ -1,0 +1,24 @@
+<%function toTitleCase( str ) { %>
+    <%return str.split(/\s+/).map( s => s.charAt( 0 ).toUpperCase() + s.substring(1).toLowerCase() ).join( " " );%>
+<%  } %>
+
+
+<h2 style="text-decoration: none; font-weight: normal; font-size:1.4vw;"><%= toTitleCase(username) %> Logged In </h2>
+
+<label style="text-decoration: none; font-weight: normal; font-size:1.25vw;">Add Normy:</label>
+<h2 style="text-decoration: none; font-weight: normal; font-size:1.0vw;">
+    <form action="/admin/add_normy/<%= username %>" method="POST">
+        <%- include('_form_fields_add_normy') %> 
+        <button type="submit">Submit</button>
+    </form>
+</h2>
+
+<br>
+
+<label style="text-decoration: none; font-weight: normal; font-size:1.25vw;">Add Admin:</label>
+<h2 style="text-decoration: none; font-weight: normal; font-size:1.0vw;">
+    <form action="/admin/add_admin/<%= username %>" method="POST">
+        <%- include('_form_fields_add_admins') %> 
+        <button type="submit">Submit</button>
+    </form>
+</h2>

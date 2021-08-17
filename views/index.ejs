@@ -1,0 +1,31 @@
+<%function toTitleCase( str ) { %>
+    <%return str.split(/\s+/).map( s => s.charAt( 0 ).toUpperCase() + s.substring(1).toLowerCase() ).join( " " );%>
+<%  } %>
+
+<% d = [] %>
+<% e = [] %>
+<% f = [] %>    
+<% const add = arr => arr.reduce((a, b) => a + b, 0); %> 
+<% card.forEach(card => { %>
+    <% if(d.includes(card.person_to) == false ){ %> 
+        <b><%= toTitleCase(card.person_to) + ":" %> <br></b>
+        <% d.push(card.person_to) %> 
+        <ul>
+            <li><%= "Card Name: " + card.name %><br>
+                <%= "Card Worth: " + card.worth %><br>
+                <% e.push(card.worth)%>
+                <%= "Original owner of card: " + toTitleCase(card.person_from) %>
+            <br></li>
+        </ul>
+    <% } else { %> 
+        <ul>
+            <li><%= "Card Name: " + card.name %><br>
+                <%= "Card Worth: " + card.worth %><br>
+                <% e.push(card.worth)%>
+                <%= "Original Owner of Card: " + toTitleCase(card.person_from) %>
+            <br></li>
+        </ul>
+    <% } %> 
+<% }) %> 
+
+<%= f %> 

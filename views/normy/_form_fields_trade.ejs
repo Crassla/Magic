@@ -1,0 +1,16 @@
+<%function toTitleCase( str ) { %>
+    <%return str.split(/\s+/).map( s => s.charAt( 0 ).toUpperCase() + s.substring(1).toLowerCase() ).join( " " );%>
+<%  } %>
+
+<label>Card Name</label>     
+<input type="text" name="name" required>
+<br>
+<label>Card Worth</label>
+<input type="number" step="0.01" name="worth" required>
+<br>
+<label>Person Traded To</label>
+<select type="text" name="person_to">
+    <% people.forEach(people => { %>
+        <option label="<%= toTitleCase(people.username) %>" value="<%= people.username %>">
+    <% }) %>
+</select>

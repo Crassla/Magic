@@ -1,0 +1,13 @@
+<%function toTitleCase( str ) { %>
+    <%return str.split(/\s+/).map( s => s.charAt( 0 ).toUpperCase() + s.substring(1).toLowerCase() ).join( " " );%>
+<%  } %>
+
+<h2 style="text-decoration: none; font-weight: normal; font-size:1.4vw;"><%= toTitleCase(username) %> Logged In </h2>
+
+<label style="text-decoration: none; font-weight: normal; font-size:1.25vw;">Card Traded:</label>
+<h2 style="text-decoration: none; font-weight: normal; font-size:1.0vw;">
+    <form action="/normy/trade/<%= username %>" method="POST">
+        <%- include('_form_fields_trade') %> 
+        <button type="submit">Submit</button>
+    </form>
+</h2>
